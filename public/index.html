@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>TikTok Video Downloader</title>
+  <style>
+    body { font-family: sans-serif; background: #f0f0f0; display: flex; justify-content: center; align-items: center; height: 100vh; }
+    .box { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); text-align: center; }
+    input, button { width: 100%; padding: 10px; margin-top: 10px; }
+    button { background: #ff0050; color: white; border: none; border-radius: 5px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <img src="images/Adsız tasarım.png" alt="">
+    <h2>Video Dowlander</h2>
+    <input type="text" id="url" placeholder="TikTok video linkini yapıştırın">
+    <button onclick="downloadVideo()">İndir</button>
+  </div>
+
+  <script>
+    function downloadVideo() {
+      const url = document.getElementById("url").value.trim();
+      if (!url) return alert("Lütfen bir TikTok URL girin");
+      window.location.href = `/api/download?url=${encodeURIComponent(url)}`;
+    }
+  </script>
+</body>
+</html>
